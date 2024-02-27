@@ -1,86 +1,22 @@
+//deklarasi variabel
+const tombol = document.querySelector(".container-tombol");
+const layar = document.querySelector("#layar");
 
-.calculator{
-width: 300px;
-background-color: #c9a2a2;
-margin: 50px auto 10px auto;
-padding: 7px;
-border-radius: 5px;
-display: block;
-  
-}
-h1{
-  text-align: center;
-}
+//jika tombol angka di klik oleh user
+tombol.addEventListener("click" function(e)){
+ let tomboldiClick = e.target;
+ let nilaiTombol = tomboldiClick.innerText;
 
-#layar{
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #cecece;
-  font-size: 50px;
-  font-weight: bold;
-  color: rgb(15, 15, 175);
-  padding: 7px 5px;
-  text-align: right;
-  outline: none;
-}
+//jika tombol C di klik oleh user
+if(nilaiTombol == "C"){
+  layar.value = "";
+}else if(nilaiTombol == "DEL"){
+  layar.value = layar.value.slice(0, -1);
+}else if(nilaiTombol == "="){
+  layar.value = eval(layar.value);
+}else{
+  layar.value = layar.value + nilaiTombol;
+ }
+}};
 
-.container-tombol{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tombol{
-  display: flex;
-  width: 25%;
-  font-size: 20px;
-  color: rgb(24, 23, 23);
-  border: 1px solid #cecece;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-}
-
-.tombol:nth-child(4n+1){
-  border-left: 1px solid #cecece;
-}
-
-.tombol:hover{
-  background-color: #d8d8d8;
-  cursor: pointer;
-}
-#nol{
-  flex-grow: 2;
-}
-#operator{
-  background-color: #d8d8d8;
-}
-
-#hitung{
-  background-color: ffa64a;
-  color: white;
-}
-
-#hitung:hover{
-  background-color: #ffa64a;
-  cursor: pointer;
-}
-
-footer{
-  padding: 5px;
-}
-footer li{
-  list-style: none;
-}
-footer a{
-  color: black;
-}
-
-/*HP*/
-@media (max-width: 576px){
-  .calculator{
-    width: 90%;
-    height: 90%;
-  }
-}
-
-Style.css
+App.js
